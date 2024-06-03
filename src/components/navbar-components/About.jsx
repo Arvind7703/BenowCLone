@@ -44,7 +44,7 @@ function About(info) {
           <div className="founders w-full h-[75vh] flex justify-center">
             <div>
               <div className="relative hover:opacity-0 transition-opacity duration-500">
-                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent max-lg:w-full w-[40vw] h-[70vh] rounded-lg opacity-50 z-50"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent max-lg:w-full w-[40vw] h-[70vh] rounded-lg opacity-50 z-20"></div>
                 <img
                   className="bg-zinc-500 w-[40vw] max-lg:w-full h-[70vh] bg-right rounded-lg "
                   src="https://www.benow.in/img/f1.png"
@@ -73,7 +73,7 @@ function About(info) {
           <div className="founders w-full h-[75vh] flex justify-center">
             <div>
               <div className="relative hover:opacity-0 transition-opacity duration-500">
-                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent max-lg:w-full w-[40vw] h-[70vh]  rounded-lg opacity-30 z-50"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent max-lg:w-full w-[40vw] h-[70vh]  rounded-lg opacity-30 z-20"></div>
                 <img
                   className="bg-zinc-500 w-[40vw] max-lg:w-full h-[70vh] bg-right rounded-lg"
                   src="https://www.benow.in/img/f2.jpg"

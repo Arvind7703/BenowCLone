@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoIosArrowUp, IoIosMenu } from "react-icons/io";
 import { Link } from "react-router-dom";
 
@@ -6,9 +6,57 @@ function Navbar() {
   const [isHovered, setIsHovered] = useState(false);
   const [dropdownHovered, setDropdownHovered] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+
+      if (scrollTop > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+
+      if (scrollTop > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <header className="w-full font-medium text-zinc-700">
+    <header
+      className={`w-full font-medium text-zinc-700 fixed transition-all duration-[2000ms] z-50 ${
+        isScrolled ? "bg-white shadow-md" : " sticky"
+      }`}
+    >
       <nav className="flex h-auto py-5 justify-between items-center relative">
         <div className="flex items-center">
           <Link to="/">
@@ -101,6 +149,12 @@ function Navbar() {
           </div>
         </div>
       </nav>
+      <div
+        className="fixed bottom-10 right-10 cursor-pointer bg-red-600 text-white p-3 rounded-full shadow-md"
+        onClick={scrollToTop}
+      >
+        <IoIosArrowUp />
+      </div>
     </header>
   );
 }
